@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8 Puzzle Game</title>
+  <link rel="stylesheet" href="sliding2.css" />
+</head>
+<body>
+  <div class="game-container">
+    <h1>🧩 8 Puzzle Game - Level <span id="levelDisplay">1</span></h1>
+    
+    <!-- Puzzle Board Centered -->
+    <div class="puzzle-container">
+      <div id="puzzle" class="puzzle-board"></div>
+    </div>
+    
+    <div class="info">
+      <p><strong>Steps:</strong> <span id="userSteps">0</span></p>
+      <p><strong>Minimum Steps:</strong> <span id="minSteps">?</span></p>
+    </div>
+
+    <div class="controls">
+      <button id="nextLevelBtn">Next Level</button>
+      <button onclick="location.href='sliding.html'">Back</button>
+    </div>
+    
+    <p id="status"></p>
+  </div>
+
+  <!-- Winning Popup -->
+  <div id="winPopup" class="popup">
+    <div class="popup-content">
+      <h2>🎉 Level Complete! 🎉</h2>
+      <p>Get ready for the next level...</p>
+    </div>
+  </div>
+
+  <script src="sliding.js"></script>
+</body>
+</html>

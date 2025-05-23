@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maze Solver Adventure</title>
+    <link rel="stylesheet" href="maze.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>Maze Solver Adventure</h1>
+            <div class="game-info">
+                <div id="level-display">Level: 1</div>
+                <div id="timer">Time: 00:00</div>
+                <div id="coins">Coins: 0/0</div>
+            </div>
+        </header>
+        
+        <div id="message"></div>
+        
+        <div class="maze-container">
+            <table id="maze"></table>
+        </div>
+        
+        <div class="controls">
+            <button id="reset-btn">Reset Level</button>
+            <button id="hint-btn">Get Hint</button>
+            <button id="solve-btn">Solve Maze</button>
+            <button id="new-maze-btn">New Random Maze</button>
+        </div>
+        
+        <div class="mobile-controls">
+            <button class="arrow-btn" id="up-btn">↑</button>
+            <div>
+                <button class="arrow-btn" id="left-btn">←</button>
+                <button class="arrow-btn" id="down-btn">↓</button>
+                <button class="arrow-btn" id="right-btn">→</button>
+            </div>
+        </div>
+    </div>
+  <!-- Replace the existing winPopup div with this: -->
+<div id="winPopup" class="popup">
+    <div class="popup-content">
+        <h2>🎉 Congratulations! 🎉</h2>
+        <p>You completed all levels of Maze Solver Adventure!</p>
+        <button class="btn" onclick="closeWinPopup()">Play Again</button>
+    </div>
+</div>
+
+    <script src="maze.js"></script>
+</body>
+</html>

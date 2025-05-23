@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sudoku Solver - Select Difficulty</title>
+  <link rel="stylesheet" href="sudoku.css">
+</head>
+<body class="dark-bg">
+  <div class="card">
+    <h1>🧠 Sudoku Solver</h1> <!-- Brain emoji added here -->
+    <p>Select Difficulty Level</p>
+    <div class="difficulty-buttons">
+      <button class="btn" onclick="startGame('easy')">Easy</button>
+      <button class="btn" onclick="startGame('medium')">Medium</button>
+      <button class="btn" onclick="startGame('hard')">Hard</button>
+    </div>
+  </div>
+
+  <script>
+    function startGame(level) {
+      localStorage.setItem('difficulty', level);
+      window.location.href = 'sudoku2.html';
+    }
+  </script>
+</body>
+</html>

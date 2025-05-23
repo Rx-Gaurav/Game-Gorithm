@@ -1,0 +1,422 @@
+/* Cyberpunk Neon Theme */
+:root {
+  --neon-blue: #0ff0fc;
+  --neon-pink: #2affc3;
+  --neon-purple: #d300c5;
+  --dark-bg: #0d0221;
+  --darker-bg: #04001a;
+  --text-glow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+}
+
+body {
+  font-family: 'Rajdhani', 'Arial Narrow', sans-serif;
+  background-color: var(--dark-bg);
+  background-image: 
+    linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%),
+    radial-gradient(circle at center, var(--neon-purple) 0%, transparent 70%);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  text-transform: uppercase;
+}
+
+.game-container {
+  background-color: rgba(13, 2, 33, 0.8);
+  border: 2px solid var(--neon-blue);
+  box-shadow: 
+    0 0 15px var(--neon-blue),
+    0 0 30px rgba(0, 255, 252, 0.3),
+    inset 0 0 15px var(--neon-blue);
+  padding: 2rem;
+  max-width: 800px;
+  width: 95%;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-container::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    linear-gradient(transparent 0%, rgba(255,42,109,0.1) 50%, transparent 100%),
+    repeating-linear-gradient(
+      45deg,
+      transparent 0px,
+      transparent 2px,
+      rgba(255,42,109,0.1) 3px,
+      rgba(255,42,109,0.1) 5px
+    );
+  animation: scanlines 4s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes scanlines {
+  from { transform: translateY(0); }
+  to { transform: translateY(100%); }
+}
+
+h1 {
+  color: var(--neon-pink);
+  text-shadow: 
+    0 0 10px var(--neon-pink),
+    0 0 20px var(--neon-pink),
+    0 0 30px var(--neon-pink);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 3px;
+  text-align: center;
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+  margin-top: 10px;
+  box-shadow: 0 0 10px var(--neon-blue);
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: var(--neon-blue);
+  text-shadow: var(--text-glow);
+}
+
+#message {
+  min-height: 2rem;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  color: var(--neon-pink);
+  text-shadow: 0 0 5px var(--neon-pink);
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.maze-container {
+  border: 2px solid var(--neon-purple);
+  box-shadow: 
+    inset 0 0 10px var(--neon-purple),
+    0 0 20px rgba(211, 0, 197, 0.3);
+  padding: 5px;
+  background-color: rgba(4, 0, 26, 0.7);
+  margin: 0 auto;
+  display: inline-block;
+}
+
+#maze {
+  border-collapse: collapse;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#maze td {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.wall {
+  background-color: #1a1a3a;
+  background-image: 
+    linear-gradient(135deg, #2a2a5a 0%, #1a1a3a 100%),
+    repeating-linear-gradient(
+      45deg,
+      transparent 0px,
+      transparent 2px,
+      rgba(255,42,109,0.1) 3px,
+      rgba(255,42,109,0.1) 5px
+    );
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.path {
+  background-color: rgba(13, 2, 33, 0.5);
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.02) 0px,
+      rgba(255,255,255,0.02) 2px,
+      transparent 3px,
+      transparent 5px
+    );
+}
+
+.player {
+  background-color: var(--neon-blue);
+  background-image: radial-gradient(circle at 30% 30%, #6bd6ff 0%, #2a8fbb 100%);
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  box-shadow: 
+    0 0 10px var(--neon-blue),
+    0 0 20px var(--neon-blue);
+  animation: pulse 1.5s infinite alternate;
+}
+
+.exit {
+  background-color: var(--neon-pink);
+  background-image: 
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffffff"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm-1.06 13.54L7.4 12l1.41-1.41 2.12 2.12 4.24-4.24 1.41 1.41-5.64 5.66z"/></svg>'),
+    radial-gradient(circle at center, var(--neon-pink) 0%, rgba(255,42,109,0.7) 100%);
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 
+    0 0 10px var(--neon-pink),
+    0 0 20px var(--neon-pink);
+  animation: glow 2s infinite alternate;
+}
+
+.coin {
+  background-image: 
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23f8bb22"><circle cx="12" cy="12" r="10"/></svg>'),
+    radial-gradient(circle at center, #f8bb22 0%, rgba(248, 187, 34, 0.7) 100%);
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: spin 4s infinite linear, glow-gold 2s infinite alternate;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 2rem;
+}
+
+button {
+  padding: 12px 0;
+  background: transparent;
+  color: var(--neon-blue);
+  border: 2px solid var(--neon-blue);
+  border-radius: 0;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  text-shadow: 0 0 5px var(--neon-blue);
+  box-shadow: 0 0 10px rgba(0, 255, 252, 0.3);
+}
+
+button:hover {
+  background: rgba(0, 255, 252, 0.1);
+  box-shadow: 0 0 20px var(--neon-blue);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(0, 255, 252, 0.3) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+button:hover::before {
+  transform: translateX(100%);
+}
+
+#solve-btn {
+  border-color: var(--neon-pink);
+  color: var(--neon-pink);
+  text-shadow: 0 0 5px var(--neon-pink);
+  box-shadow: 0 0 10px rgba(255, 42, 109, 0.3);
+}
+
+#solve-btn:hover {
+  background: rgba(255, 42, 109, 0.1);
+  box-shadow: 0 0 20px var(--neon-pink);
+}
+
+.mobile-controls {
+  display: none;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.mobile-controls > div {
+  display: flex;
+  align-items: center;
+}
+
+.arrow-btn {
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+  border-radius: 50%;
+  background: rgba(0, 255, 252, 0.1);
+  border: 2px solid var(--neon-blue);
+  color: var(--neon-blue);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 255, 252, 0.3);
+}
+
+.arrow-btn:active {
+  background: rgba(0, 255, 252, 0.3);
+}
+
+@keyframes pulse {
+  from { transform: scale(1); box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue); }
+  to { transform: scale(1.1); box-shadow: 0 0 15px var(--neon-blue), 0 0 30px var(--neon-blue); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink); }
+  to { box-shadow: 0 0 15px var(--neon-pink), 0 0 30px var(--neon-pink); }
+}
+
+@keyframes glow-gold {
+  from { box-shadow: 0 0 10px #f8bb22, 0 0 20px #f8bb22; }
+  to { box-shadow: 0 0 15px #f8bb22, 0 0 30px #f8bb22; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .game-container {
+    padding: 1rem;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  .controls {
+    grid-template-columns: 1fr;
+  }
+  
+  .mobile-controls {
+    display: flex;
+  }
+  
+  #maze td {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .player {
+    width: 18px;
+    height: 18px;
+    top: 3px;
+    left: 3px;
+  }
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: #111;
+    border: 3px solid #00ffff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 15px #00ffff;
+    border-radius: 10px;
+    color: #00ffff;
+    z-index: 1001;
+}/* Add these to your existing styles.css */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 2, 33, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: var(--dark-bg);
+    border: 2px solid var(--neon-blue);
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 0 15px var(--neon-blue), 0 0 30px rgba(0, 255, 252, 0.3);
+    max-width: 500px;
+    width: 90%;
+    animation: pulse 1.5s infinite alternate;
+}
+
+.popup-content h2 {
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px var(--neon-pink);
+    margin-bottom: 1rem;
+}
+
+.popup-content p {
+    color: var(--neon-blue);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.popup-content .btn {
+    padding: 12px 24px;
+    background: transparent;
+    color: var(--neon-blue);
+    border: 2px solid var(--neon-blue);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.popup-content .btn:hover {
+    background: rgba(0, 255, 252, 0.1);
+    box-shadow: 0 0 20px var(--neon-blue);
+    transform: translateY(-2px);
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Algo Solver</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="splash-container">
+    <h1 class="title">GAMEGORITHM</h1>
+    <h2 class="title">("game+algorithm")</h2>
+    <div class="loader"></div>
+    <p class="loading-text">Loading...</p>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      const splashContainer = document.querySelector('.splash-container');
+      splashContainer.classList.add('fade-out');
+      setTimeout(() => {
+        window.location.href = "main.html";
+      }, 1000); // Wait for fade-out to complete before redirecting
+    }, 3000);
+  </script>
+</body>
+</html>

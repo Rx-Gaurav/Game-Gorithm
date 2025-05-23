@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+body {
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    background: #0a0a0a;
+    color: #00ffff;
+}
+
+h1 {
+    font-size: 2rem;
+    text-shadow: 0 0 20px #00ffff;
+}
+
+.disk-selection {
+    margin: 20px auto;
+    padding: 10px;
+    background: rgba(0, 255, 255, 0.1);
+    border: 2px solid #00ffff;
+    width: 300px;
+    border-radius: 10px;
+}
+
+#game {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 50px;
+}
+
+.tower-container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    position: relative;
+    height: 400px;
+}
+
+.comment {
+    color: #00ffd5;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.pole {
+    width: 12px;
+    height: 350px;
+    background: linear-gradient(180deg, #00ffff, #0044ff);
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    box-shadow: 0 0 10px #00ffff;
+    border-radius: 5px;
+}
+
+.tower {
+    width: 200px;
+    height: 350px;
+    border: 3px solid #00ffff;
+    box-shadow: 0 0 15px #00ffff;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding-top: 10px;
+    background: rgba(0, 255, 255, 0.1);
+    border-radius: 10px;
+    position: relative;
+}
+
+.disk {
+    height: 20px;
+    background: linear-gradient(90deg, #00ff37, #66ffed);
+    border-radius: 5px;
+    transition: transform 0.3s;
+    box-shadow: 0 0 15px #ff007f;
+    cursor: grab;
+    position: relative;
+    z-index: 2;
+}
+
+.stats {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    color: #53ecbe;
+}
+
+.btn {
+    background: #ff007f;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: #111;
+    border: 3px solid #00ffff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 15px #00ffff;
+    border-radius: 10px;
+    color: #00ffff;
+    z-index: 1001;
+}

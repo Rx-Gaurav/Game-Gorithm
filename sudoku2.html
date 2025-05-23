@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sudoku Game</title>
+  <link rel="stylesheet" href="sudoku.css" />
+</head>
+<body class="dark-bg">
+  <div class="container">
+    <h1>🧠 Sudoku Solver</h1>
+    <div id="board" class="board"></div>
+    <div class="buttons">
+      <button class="btn" id="solveBtn">Solve</button>
+      <button class="btn" id="resetBtn">Reset</button>
+      <button class="btn" id="checkBtn">Check</button>
+    </div>
+    <p id="status"></p>
+  </div>
+  <script src="sudoku.js"></script>
+     <!-- Winning Popup -->
+    <div id="winPopup" class="popup">
+        <div class="popup-content">
+            <h2>🎉 Congratulations! You Won! 🎉</h2>
+            <p>You solved the sudoku puzzle!</p>
+            <button class="btn" onclick="closeWinPopup()">Play Again 🔄</button>
+        </div>
+    </div>
+</body>
+</html>

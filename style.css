@@ -1,0 +1,142 @@
+/* Base styles */
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+/* Glassmorphism effect for splash container */
+.splash-container {
+  text-align: center;
+  opacity: 1;
+  transition: opacity 1s ease-out;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Fade-out effect */
+.splash-container.fade-out {
+  opacity: 0;
+}
+
+/* Title styles */
+.title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: fadeIn 2s ease-in-out, glow 1.5s infinite alternate;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.title:hover {
+  transform: scale(1.1);
+  color: #3498db;
+}
+
+/* Glow effect */
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px rgba(52, 152, 219, 1), 0 0 20px rgba(52, 152, 219, 0.8), 0 0 30px rgba(52, 152, 219, 0.6);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(52, 152, 219, 1), 0 0 30px rgba(52, 152, 219, 0.8), 0 0 40px rgba(52, 152, 219, 0.6);
+  }
+}
+
+/* Loader styles */
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  animation: spin 1s linear infinite, pulse 2s infinite alternate;
+  transition: transform 0.3s ease;
+}
+
+.loader:hover {
+  transform: scale(1.1);
+}
+
+/* Pulse effect */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+/* Loading text */
+.loading-text {
+  font-size: 1.4rem;
+  animation: fadeIn 2s ease-in-out;
+  opacity: 0;
+  animation-delay: 0.5s;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* FadeIn effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gradient background animation */
+@keyframes gradientAnimation {
+  0% {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  }
+  50% {
+    background: linear-gradient(135deg, #2c5364, #0f2027, #203a43);
+  }
+  100% {
+    background: linear-gradient(135deg, #203a43, #2c5364, #0f2027);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .loader {
+    width: 50px;
+    height: 50px;
+  }
+
+  .loading-text {
+    font-size: 1rem;
+  }
+}

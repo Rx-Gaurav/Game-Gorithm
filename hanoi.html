@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tower of Hanoi - Drag & Drop</title>
+    <link rel="stylesheet" href="hanoi.css">
+</head>
+<body>
+
+    <h1>🔥 Tower of Hanoi - Drag & Drop 🔥</h1>
+
+    <!-- Disk Selection -->
+    <div class="disk-selection">
+        <label for="diskInput">Enter number of disks (3-6):</label>
+        <input type="number" id="diskInput" min="3" max="6" value="3">
+        <button class="btn" onclick="startGame()">Start Game</button>
+    </div>
+
+    <!-- Game Area -->
+    <div id="game" style="display: none;">
+        <div class="tower-container">
+            <div class="comment">🏁 Start</div>
+            <div class="tower" id="tower1" ondrop="drop(event, 0)" ondragover="allowDrop(event)">
+                <div class="pole"></div>
+            </div>
+        </div>
+        <div class="tower-container">
+            <div class="tower" id="tower2" ondrop="drop(event, 1)" ondragover="allowDrop(event)">
+                <div class="pole"></div>
+            </div>
+        </div>
+        <div class="tower-container">
+            <div class="comment">🏆 End</div>
+            <div class="tower" id="tower3" ondrop="drop(event, 2)" ondragover="allowDrop(event)">
+                <div class="pole"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+        <p>📊 <b>Total Moves</b>: <span id="moves">0</span></p>
+        <p>🔢 <b>Disks in Play</b>: <span id="diskCount">3</span></p>
+        <p>⭐ <b>Best Case Moves</b>: <span id="bestCaseMoves">7</span></p>
+    </div>
+
+    <button class="btn" onclick="resetGame()">🔄 Restart Game</button>
+
+    <!-- Winning Popup -->
+    <div id="winPopup" class="popup">
+        <div class="popup-content">
+            <h2>🎉 Congratulations! You Won! 🎉</h2>
+            <p>You solved the Tower of Hanoi puzzle!</p>
+            <button class="btn" onclick="closeWinPopup()">Play Again 🔄</button>
+        </div>
+    </div>
+
+    <script src="hanoi.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #1a1a1a, #292929);
+  background-size: 400% 400%;
+  animation: gradientAnimation 12s ease infinite;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #f5f5f5;
+  overflow: hidden;
+}
+
+/* Menu Container */
+.menu-container {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 50px;
+  border-radius: 30px;
+  backdrop-filter: blur(25px);
+  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.7);
+  color: #fff;
+  max-width: 500px;
+  width: 100%;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+.menu-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9);
+}
+
+/* Title Styling */
+.menu-title {
+  font-size: 4rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 1);
+  font-family: 'Poppins', sans-serif;
+  animation: textGlow 3s ease-in-out infinite;
+}
+
+/* Title Animation for Glowing Effect */
+@keyframes textGlow {
+  0% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 1); }
+  50% { text-shadow: 0 0 25px rgba(255, 255, 255, 0.8), 0 0 35px rgba(0, 255, 255, 1); }
+  100% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 1); }
+}
+
+/* Button Styles */
+.game-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 40px;
+}
+
+button {
+  background: linear-gradient(45deg, #222222, #444444);
+  color: white;
+  border: none;
+  padding: 18px 28px;
+  font-size: 1.3rem;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+  position: relative;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #444444, #666666);
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  border: 2px solid #00d9d9;
+}
+
+button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #00d9d9, #00b5b5);
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  border-radius: 15px;
+  z-index: -1;
+}
+
+button:hover:before {
+  opacity: 1;
+}
+
+/* Button Focus for Accessibility */
+button:focus {
+  outline: 3px solid #00d9d9;
+  outline-offset: 5px;
+}
+
+/* Button Icon Styling */
+button i {
+  margin-right: 10px; /* Adds space between the icon and the text */
+  font-size: 1.5rem;  /* Adjust icon size */
+  color: #00d9d9;     /* Set color of the icons */
+  transition: color 0.3s ease;
+}
+
+button:hover i {
+  color: #fff; /* Icon color changes on hover */
+}
+
+/* Gradient Animation */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
